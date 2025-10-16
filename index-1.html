@@ -149,9 +149,9 @@
 
   document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("year").textContent=new Date().getFullYear();
-    PRODUCTS.push({name:"ChatGPT Plus (3m)",price:139000,cat:"AI"});
-        enderProducts();initEmail();
-    document.getElementById("openCart").onclick=openCart;
+
+rerenderProducts();initEmail();
+  
     document.getElementById("closeCart").onclick=closeCart;
     document.getElementById("checkoutBtn").onclick=openCheckout;
     document.getElementById("c-close").onclick=closeCheckout;
