@@ -121,6 +121,7 @@
   const QR_SIZE_PX=340;
   const PRODUCTS=[{name:"ChatGPT Plus",price:139000,cat:"AI"},{name:"Discord Nitro (1m)",price:99000,cat:"Discord"},{name:"YouTube Premium",price:15000,cat:"YouTube"}];
   const cart=[];const fmt=n=>(n||0).toLocaleString("vi-VN")+" VND";
+    PRODUCTS.push({name:"ChatGPT Plus (3m)",price:139000,cat:"AI"});
 
   const renderProducts=()=>{const w=document.getElementById("productList");w.innerHTML="";PRODUCTS.forEach((p,i)=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<h3 class='font-bold mb-2'>${p.name}</h3><p>${fmt(p.price)}</p><button class='btn w-full mt-3' onclick='addToCart(${i})'>Thêm vào giỏ</button>`;w.appendChild(d);});};
   const renderCart=()=>{const l=document.getElementById("cartItems");l.innerHTML="";let t=0;cart.forEach((x,i)=>{t+=x.price*x.qty;const r=document.createElement("div");r.className="flex justify-between border p-2 rounded";r.innerHTML=`<div>${x.name}<br><small>${fmt(x.price)} × ${x.qty}</small></div><button onclick='removeItem(${i})'>🗑</button>`;l.appendChild(r);});document.getElementById("subtotal").textContent=fmt(t);document.getElementById("cartCount").textContent="("+cart.reduce((s,x)=>s+x.qty,0)+")";};
@@ -148,7 +149,8 @@
 
   document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("year").textContent=new Date().getFullYear();
-    renderProducts();initEmail();
+    PRODUCTS.push({name:"ChatGPT Plus (3m)",price:139000,cat:"AI"});
+        enderProducts();initEmail();
     document.getElementById("openCart").onclick=openCart;
     document.getElementById("closeCart").onclick=closeCart;
     document.getElementById("checkoutBtn").onclick=openCheckout;
